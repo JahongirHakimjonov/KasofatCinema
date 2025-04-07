@@ -23,7 +23,7 @@ class PermissionAdmin(ModelAdmin):
     search_fields = ("name", "codename")
     ordering = ("content_type__app_label", "codename")
     list_filter = ("content_type",)
-    autocomplete_fields = ("content_type",)
+    # autocomplete_fields = ("content_type",)
 
 
 @admin.register(Group)
