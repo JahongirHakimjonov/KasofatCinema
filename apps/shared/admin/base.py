@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Group, User, Permission
 from django.contrib.sites.models import Site
 from unfold.admin import ModelAdmin
 from unfold.forms import UserChangeForm, UserCreationForm, AdminPasswordChangeForm
@@ -9,6 +9,16 @@ from unfold.forms import UserChangeForm, UserCreationForm, AdminPasswordChangeFo
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.unregister(Site)
+admin.site.unregister(Permission)
+
+
+@admin.register(Permission)
+class PermissionAdmin(ModelAdmin):
+    list_display = ("id", "name", "content_type")
+    search_fields = ("name", "codename")
+    ordering = ("content_type__app_label", "codename")
+    list_filter = ("content_type",)
+    filter_horizontal = ("user_set", "group_set")
 
 
 @admin.register(Group)

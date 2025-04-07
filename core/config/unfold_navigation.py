@@ -45,6 +45,14 @@ PAGES = [
                 ),
             },
             {
+                "title": _("Permissions"),
+                "icon": "person_add",
+                "link": reverse_lazy("admin:auth_permission_changelist"),
+                "permission": lambda request: user_has_group_or_permission(
+                    request.user, "view_user"
+                ),
+            },
+            {
                 "title": _("Site"),
                 "icon": "language",
                 "link": reverse_lazy("admin:sites_site_changelist"),
