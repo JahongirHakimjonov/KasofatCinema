@@ -19,10 +19,11 @@ except NotRegistered:
 
 @admin.register(Permission)
 class PermissionAdmin(ModelAdmin):
-    list_display = ("id", "name", "content_type")
+    list_display = ("id", "name", "content_type", "codename")
     search_fields = ("name", "codename")
     ordering = ("content_type__app_label", "codename")
     list_filter = ("content_type",)
+    autocomplete_fields = ("content_type",)
 
 
 @admin.register(Group)
