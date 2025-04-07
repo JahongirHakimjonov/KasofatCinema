@@ -1,7 +1,9 @@
 from django.contrib import admin
+from django.contrib.admin.sites import NotRegistered
 from django.contrib.auth.admin import GroupAdmin as BaseGroupAdmin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.contrib.auth.models import Group, User, Permission
+from django.contrib.auth.models import Group, User
+from django.contrib.auth.models import Permission
 from django.contrib.sites.models import Site
 from unfold.admin import ModelAdmin
 from unfold.forms import UserChangeForm, UserCreationForm, AdminPasswordChangeForm
@@ -9,7 +11,10 @@ from unfold.forms import UserChangeForm, UserCreationForm, AdminPasswordChangeFo
 admin.site.unregister(Group)
 admin.site.unregister(User)
 admin.site.unregister(Site)
-admin.site.unregister(Permission)
+try:
+    admin.site.unregister(Permission)
+except NotRegistered:
+    pass
 
 
 @admin.register(Permission)
