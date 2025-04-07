@@ -46,7 +46,7 @@ PAGES = [
             },
             {
                 "title": _("Permissions"),
-                "icon": "person_add",
+                "icon": "perm_device_information",
                 "link": reverse_lazy("admin:auth_permission_changelist"),
                 "permission": lambda request: user_has_group_or_permission(
                     request.user, "view_user"
