@@ -23,4 +23,4 @@ urlpatterns = (
     ]
 )
 
-urlpatterns += swagger_patterns
+# urlpatterns += swagger_patterns
