@@ -23,7 +23,6 @@ class PermissionAdmin(ModelAdmin):
     search_fields = ("name", "codename")
     ordering = ("content_type__app_label", "codename")
     list_filter = ("content_type",)
-    filter_horizontal = ("user_set", "group_set")
 
 
 @admin.register(Group)
