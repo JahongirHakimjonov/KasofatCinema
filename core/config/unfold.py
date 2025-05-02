@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from . import unfold_navigation as navigation
 
 
-def environment_callback(request):
+def environment_callback(request):  # noqa
     if settings.DEBUG:
         return ["Development", "primary"]
 

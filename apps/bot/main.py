@@ -26,7 +26,6 @@ from apps.bot.handlers.register import handle_callback_query
 from apps.bot.query.inlinequery import search_query
 from telebot import TeleBot, apihelper
 
-# from apps.bot.query.inlinequery import query_text
 from apps.bot.logger import logger
 
 # Log a message to indicate the bot is starting
